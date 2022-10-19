@@ -1,0 +1,7 @@
+let w: i32 = 0;
+
+while (w < 100) {
+	let w: i32 = w + 1;
+}
+
+assert_int_eq(w, 100);

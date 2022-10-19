@@ -1,0 +1,10 @@
+/target
+/build
+/zir_obj.o
+
+# visual studio
+/.vs
+/out
+/CMakeSettings.json
+
+/Cargo.lock

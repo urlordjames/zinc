@@ -1,0 +1,5 @@
+let x: str = str_concat("br", "uh");
+assert_str_eq(x, "bruh");
+assert_bool_eq(str_eq(x, "bruh"), true);
+assert_bool_eq(str_eq(x, "cheese"), false);
+assert_int_eq(str_len(x), 4);

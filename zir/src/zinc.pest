@@ -1,0 +1,39 @@
+WHITESPACE = _{ " " | "\t" | NEWLINE }
+COMMENT = _{ "/*" ~ (!"*/" ~ ANY)* ~ "*/" }
+
+file = { SOI ~ (func_declaration | line)* ~ EOI }
+line = { ((return_statement | var_declaration | expr) ~ ";") | (if_statement | while_loop | infinite_loop) }
+expr = { (binary_expr | string_literal) }
+
+string_literal = @{ "\"" ~ (ASCII_ALPHA | " " | "#" | "?" | "{" | "}")* ~ "\"" }
+
+binary_expr = { operand ~ (operator ~ operand)* }
+operator = @{ "+" | "-" | "*" | "/" | "==" | "!=" | "=?" | "!?" | "<=" | ">=" | "<" | ">" }
+
+operand = { function_expr | number | boolean | identifier }
+
+function_expr = { function_name ~ "(" ~ args? ~ ")" }
+function_name = { (ASCII_ALPHA | "_")+ }
+args = { expr ~ ("," ~ expr)* }
+
+number = @{ "-"? ~ ASCII_DIGIT+ }
+boolean = @{ "true" | "false" }
+
+type_name = { "i32" | "bool" | "str" | "void" }
+
+var_declaration = { "let" ~ variable_definition ~ "=" ~ expr }
+variable_definition = { identifier ~ ":" ~ type_name }
+identifier = @{ (ASCII_ALPHA | "_")+ }
+
+lines = { line* }
+
+func_declaration = { "fn" ~ function_signature ~ "->" ~ type_name ~ "{" ~ lines ~ "}" }
+function_signature = { function_name ~ "(" ~ definition_args? ~ ")" }
+definition_args = { variable_definition ~ ("," ~ variable_definition)* }
+return_statement = { "return" ~ expr }
+
+if_statement = { "if" ~ "(" ~ expr ~ ")" ~ "{" ~ lines ~ "}" ~ ("else" ~ "{" ~ lines ~ "}")? }
+
+while_loop = { "while" ~ "(" ~ expr ~ ")" ~ "{" ~ lines ~ "}" }
+
+infinite_loop = { "loop" ~ "{" ~ lines ~ "}" }

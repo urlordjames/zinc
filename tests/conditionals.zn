@@ -1,0 +1,17 @@
+if (false) {
+	panic();
+}
+
+let cond: bool = 1 + 1 == 2;
+if (cond) {
+	assert_bool_eq(cond, true);
+} else {
+	panic();
+}
+
+let cond: bool = cond =? false;
+if (cond) {
+	panic();
+} else {
+	assert_bool_eq(cond, false);
+}

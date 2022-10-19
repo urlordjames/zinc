@@ -1,0 +1,9 @@
+assert_int_eq(2 + 3, 5);
+assert_int_eq(1 + 2 + 3, 6);
+assert_int_eq(10 - 3 * 3, 21);
+assert_int_eq(9 / 3, 3);
+
+assert_bool_eq(3 < 2, false);
+assert_bool_eq(4 > 2, true);
+assert_bool_eq(3 <= 3, true);
+assert_bool_eq(1 >= 3, false);

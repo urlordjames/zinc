@@ -1,0 +1,4 @@
+assert_bool_eq(true =? true, true);
+assert_bool_eq(false =? false, true);
+assert_bool_eq(true !? false, true);
+assert_bool_eq(true !? true, false);

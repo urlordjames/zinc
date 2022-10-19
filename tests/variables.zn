@@ -1,0 +1,6 @@
+let one: i32 = 1;
+assert_int_eq(one, 1);
+let two: i32 = one + 1;
+assert_int_eq(two, 2);
+let three: bool = true;
+assert_bool_eq(three, true);

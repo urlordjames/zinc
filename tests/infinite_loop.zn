@@ -1,0 +1,14 @@
+fn test_loop(n: i32) -> i32 {
+    let x: i32 = 0;
+
+    loop {
+        let x: i32 = x + 1;
+
+        if (x > n) {
+            return x;
+        }
+    }
+}
+
+let n: i32 = 100;
+assert_int_eq(test_loop(n), n + 1);

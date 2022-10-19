@@ -1,0 +1,16 @@
+let n: i32 = 0;
+
+let size: i32 = 100;
+let x: i32 = size;
+let y: i32 = size;
+
+while (x > 0) {
+    let x: i32 = x - 1;
+    while (y > 0) {
+        let y: i32 = y - 1;
+        let n: i32 = n + 1;
+    }
+    let y: i32 = size;
+}
+
+assert_int_eq(n, size * size);

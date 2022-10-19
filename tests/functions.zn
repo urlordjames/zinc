@@ -1,0 +1,13 @@
+fn square(n: i32) -> i32 {
+	return n * n;
+}
+
+assert_int_eq(square(3) + 1, 10);
+assert_int_eq(square(15 / 3), 25);
+
+fn eq(x: i32, y: i32) -> bool {
+	return x == y;
+}
+
+assert_bool_eq(eq(1, 2), false);
+assert_bool_eq(eq(3, 3), true);

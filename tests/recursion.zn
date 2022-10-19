@@ -1,0 +1,10 @@
+fn fibo(n: i32) -> i32 {
+	if (n <= 1) {
+		return n;
+	} else {
+		return fibo(n - 1) + fibo(n - 2);
+	}
+}
+
+assert_int_eq(fibo(15), 610);
+assert_int_eq(fibo(20), 6765);

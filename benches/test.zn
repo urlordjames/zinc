@@ -1,0 +1,29 @@
+fn fibo(n: i32) -> i32 {
+	if (n <= 1) {
+		return n;
+	} else {
+		return fibo(n - 1) + fibo(n - 2);
+	}
+}
+
+assert_int_eq(fibo(25), 75025);
+
+let n: i32 = 0;
+let z: i32 = 99999;
+
+while (n < z) {
+	let n: i32 = n + 1;
+	assert_bool_eq(true =? true, true);
+}
+
+assert_int_eq(n, z);
+
+let s: str = "my name jeff";
+let n: i32 = 0;
+
+while (n < 1000) {
+	let n: i32 = n + 1;
+	let s: str = str_concat(s, "f");
+}
+
+assert_int_eq(str_len(s), 12 + 1000);
